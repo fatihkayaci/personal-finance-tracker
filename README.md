@@ -1,196 +1,197 @@
 # 💰 Personal Finance Tracker
 
-Modern ve kullanıcı dostu kişisel finans yönetim uygulaması. Django ile geliştirilmiş, responsive tasarım ve interaktif grafiklerle finansal durumunuzu kolayca takip edin.
+A modern and user-friendly personal finance management application. Built with Django, featuring responsive design and interactive charts to easily track your financial status.
 
-## ✨ Özellikler
+## ✨ Features
 
 ### 📊 Dashboard
-- **Anlık özet kartları** - Toplam gelir, gider ve bakiye
-- **İnteraktif grafikler** - Chart.js ile kategori dağılımı ve aylık trendler
-- **Son işlemler** listesi
-- **Hızlı işlem** butonları
+- **Real-time summary cards** - Total income, expenses, and balance
+- **Interactive charts** - Category distribution and monthly trends with Chart.js
+- **Recent transactions** list
+- **Quick action** buttons
 
-### 💳 İşlem Yönetimi
-- **Gelir/Gider ekleme** - Kolay form ile işlem kaydetme
-- **Kategori bazlı** organizasyon
-- **Düzenleme ve silme** işlemleri
-- **Tarih bazlı** filtreleme
+### 💳 Transaction Management
+- **Add income/expenses** - Easy form for recording transactions
+- **Category-based** organization
+- **Edit and delete** operations
+- **Date-based** filtering
 
-### 🏷️ Kategori Sistemi
-- **Özelleştirilebilir kategoriler**
-- **Gelir/Gider** ayrımı
-- **Renkli etiketler**
-- **Admin panel** entegrasyonu
+### 🏷️ Category System
+- **Customizable categories**
+- **Income/Expense** separation
+- **Colored labels**
+- **Admin panel** integration
 
-### 🔐 Kullanıcı Sistemi
-- **Güvenli giriş/çıkış**
-- **Kişisel veri güvenliği**
-- **Kullanıcı bazlı** işlem yönetimi
+### 🔐 User System
+- **Secure login/logout**
+- **Personal data security**
+- **User-based** transaction management
 
-## 🛠️ Teknoloji Stack
+## 🛠️ Technology Stack
 
 ### Backend
 - **Django 4.2** - Python web framework
-- **SQLite** - Veritabanı (geliştirme)
-- **Django Admin** - Yönetim paneli
+- **SQLite** - Database (development)
+- **Django Admin** - Management panel
 
 ### Frontend
 - **Bootstrap 5** - CSS framework
-- **Chart.js** - Grafik kütüphanesi
-- **Font Awesome** - İkonlar
-- **Vanilla JavaScript** - İnteraktivite
+- **Chart.js** - Charting library
+- **Font Awesome** - Icons
+- **Vanilla JavaScript** - Interactivity
 
 ### Deployment
-- **GitHub** - Versiyon kontrolü
+- **GitHub** - Version control
 - **Gunicorn** - WSGI server (production)
-- **PostgreSQL** - Veritabanı (production)
+- **PostgreSQL** - Database (production)
 
-## 🚀 Kurulum
+## 🚀 Installation
 
-### Gereksinimler
+### Requirements
 - Python 3.8+
 - pip
-- virtualenv (önerilen)
+- virtualenv (recommended)
 
-### Adım Adım Kurulum
+### Step-by-Step Installation
 
-1. **Repository'yi klonlayın:**
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/fatihkayaci/personal-finance-tracker.git
 cd personal-finance-tracker
 ```
 
-2. **Virtual environment oluşturun:**
+2. **Create virtual environment:**
 ```bash
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 ```
 
-3. **Bağımlılıkları yükleyin:**
+3. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Veritabanını ayarlayın:**
+4. **Set up database:**
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-5. **Superuser oluşturun:**
+5. **Create superuser:**
 ```bash
 python manage.py createsuperuser
 ```
 
-6. **Geliştirme sunucusunu başlatın:**
+6. **Start development server:**
 ```bash
 python manage.py runserver
 ```
 
-7. **Tarayıcıda açın:**
+7. **Open in browser:**
 ```
 http://127.0.0.1:8000
 ```
 
-## 📱 Kullanım
+## 📱 Usage
 
-### İlk Kurulum
-1. Admin panelinden giriş yapın (`/admin/`)
-2. Kategoriler oluşturun (Yemek, Ulaşım, Maaş, vb.)
-3. Ana sayfaya dönün ve ilk işleminizi ekleyin
+### Initial Setup
+1. Login to admin panel (`/admin/`)
+2. Create categories (Food, Transportation, Salary, etc.)
+3. Return to homepage and add your first transaction
 
-### Günlük Kullanım
-1. **Dashboard'a** göz atarak mali durumunuzu görün
-2. **"Yeni İşlem Ekle"** ile gelir/giderlerinizi kaydedin
-3. **Grafiklerle** harcama alışkanlıklarınızı analiz edin
-4. **İşlemler sayfasından** geçmiş kayıtlarınızı yönetin
+### Daily Usage
+1. Check your **Dashboard** to view financial status
+2. Use **"Add New Transaction"** to record income/expenses
+3. **Analyze** spending habits with charts
+4. **Manage** past records from transactions page
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 personal-finance-tracker/
-├── finance_tracker/          # Ana proje ayarları
+├── finance_tracker/          # Main project settings
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── dashboard/                # Ana sayfa app'i
+├── dashboard/                # Homepage app
 │   ├── views.py             # Dashboard logic
 │   ├── urls.py              # Dashboard routing
 │   └── templates/           # Dashboard HTML
-├── transactions/            # İşlem yönetimi app'i
-│   ├── models.py           # Transaction & Category modelleri
-│   ├── views.py            # İşlem CRUD operasyonları
-│   ├── urls.py             # İşlem routing
-│   ├── admin.py            # Admin panel ayarları
-│   └── templates/          # İşlem HTML'leri
-├── accounts/               # Kullanıcı yönetimi (gelecekte)
-├── static/                 # CSS, JS, resimler
-├── media/                  # Kullanıcı yüklemeleri
-├── requirements.txt        # Python bağımlılıkları
-└── manage.py              # Django yönetim scripti
+├── transactions/            # Transaction management app
+│   ├── models.py           # Transaction & Category models
+│   ├── views.py            # Transaction CRUD operations
+│   ├── urls.py             # Transaction routing
+│   ├── admin.py            # Admin panel settings
+│   └── templates/          # Transaction HTML files
+├── accounts/               # User management (future)
+├── static/                 # CSS, JS, images
+├── media/                  # User uploads
+├── requirements.txt        # Python dependencies
+└── manage.py              # Django management script
 ```
 
-## 🔧 Geliştirme
+## 🔧 Development
 
-### Yeni Özellik Ekleme
-1. Uygun app'e yeni view ekleyin
-2. URL routing yapın
-3. Template oluşturun
-4. Test edin
+### Adding New Features
+1. Add new view to appropriate app
+2. Configure URL routing
+3. Create template
+4. Test functionality
 
-### Veritabanı Değişiklikleri
+### Database Changes
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### Static Dosya Değişiklikleri
+### Static File Changes
 ```bash
 python manage.py collectstatic
 ```
 
-## 🤝 Katkıda Bulunma
 
-1. Bu repository'yi fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+## 🤝 Contributing
 
-## 📋 Yapılacaklar (Roadmap)
+1. Fork this repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Create Pull Request
 
-### v1.0 (Mevcut)
-- [x] Temel dashboard
-- [x] İşlem CRUD operasyonları
-- [x] Kategori sistemi
-- [x] Grafik entegrasyonu
+## 📋 Roadmap
 
-### v1.1 (Planlanan)
-- [ ] Kullanıcı kayıt/giriş sistemi
-- [ ] Profile sayfası
-- [ ] Bütçe hedefleri
-- [ ] E-posta bildirimleri
+### v1.0 (Current)
+- [x] Basic dashboard
+- [x] Transaction CRUD operations
+- [x] Category system
+- [x] Chart integration
 
-### v1.2 (Gelecek)
+### v1.1 (Planned)
+- [ ] User registration/login system
+- [ ] Profile page
+- [ ] Budget goals
+- [ ] Email notifications
+
+### v1.2 (Future)
 - [ ] CSV import/export
-- [ ] Raporlar (PDF)
-- [ ] Mobil uygulama (React Native)
+- [ ] Reports (PDF)
+- [ ] Mobile app (React Native)
 - [ ] API (Django REST Framework)
 
-## 📜 Lisans
+## 📜 License
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Geliştirici
+## 👨‍💻 Developer
 
-**Fatih KAYACI** - [GitHub](https://github.com/fatihkayaci) | [LinkedIn](https://www.linkedin.com/in/fatih-kayaci-79180a28a/)
+**[Your Name]** - [GitHub](https://github.com/fatihkayaci) | [LinkedIn](https://www.linkedin.com/in/fatih-kayaci-79180a28a/)
 
-## 🙏 Teşekkürler
+## 🙏 Acknowledgments
 
 - [Django](https://djangoproject.com/) - Web framework
 - [Bootstrap](https://getbootstrap.com/) - CSS framework
-- [Chart.js](https://www.chartjs.org/) - Grafik kütüphanesi
-- [Font Awesome](https://fontawesome.com/) - İkonlar
+- [Chart.js](https://www.chartjs.org/) - Charting library
+- [Font Awesome](https://fontawesome.com/) - Icons
 
 ---
-⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
+⭐ If you like this project, don't forget to give it a star!
