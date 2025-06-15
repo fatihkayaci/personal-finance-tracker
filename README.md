@@ -148,20 +148,6 @@ python manage.py migrate
 ```bash
 python manage.py collectstatic
 ```
-<!-- 
-## 🎨 Ekran Görüntüleri
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-*Gelir, gider özeti ve interaktif grafikler*
-
-### İşlem Listesi
-![Transactions](screenshots/transactions.png)
-*Tüm işlemlerin listesi ve filtreleme*
-
-### İşlem Ekleme
-![Add Transaction](screenshots/add-transaction.png)
-*Kolay işlem ekleme formu* -->
 
 ## 🤝 Katkıda Bulunma
 
