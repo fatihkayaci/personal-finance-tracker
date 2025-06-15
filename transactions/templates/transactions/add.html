@@ -1,0 +1,141 @@
+{% extends 'transactions/base.html' %}
+
+{% block title %}Yeni İşlem Ekle - Finance Tracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-plus-circle me-2"></i>
+                    Yeni İşlem Ekle
+                </h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Transaction Type -->
+                    <div class="mb-3">
+                        <label for="transaction_type" class="form-label">
+                            <i class="fas fa-exchange-alt me-1"></i>
+                            İşlem Tipi
+                        </label>
+                        <select class="form-select" id="transaction_type" name="transaction_type" required>
+                            <option value="">İşlem tipi seçin...</option>
+                            <option value="income">
+                                <i class="fas fa-arrow-up"></i> Gelir
+                            </option>
+                            <option value="expense">
+                                <i class="fas fa-arrow-down"></i> Gider
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Amount -->
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">
+                            <i class="fas fa-dollar-sign me-1"></i>
+                            Tutar
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" 
+                                   class="form-control" 
+                                   id="amount" 
+                                   name="amount" 
+                                   step="0.01" 
+                                   min="0" 
+                                   placeholder="0.00" 
+                                   required>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">
+                            <i class="fas fa-align-left me-1"></i>
+                            Açıklama
+                        </label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="description" 
+                               name="description" 
+                               placeholder="İşlem açıklaması..." 
+                               required>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="mb-3">
+                        <label for="category" class="form-label">
+                            <i class="fas fa-tags me-1"></i>
+                            Kategori
+                        </label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Kategori seçin...</option>
+                            {% for category in categories %}
+                                <option value="{{ category.id }}">
+                                    {{ category.name }} ({{ category.get_category_type_display }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="mb-3">
+                        <label for="date" class="form-label">
+                            <i class="fas fa-calendar me-1"></i>
+                            Tarih
+                        </label>
+                        <input type="date" 
+                               class="form-control" 
+                               id="date" 
+                               name="date" 
+                               value="{{ today|date:'Y-m-d' }}" 
+                               required>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{% url 'transactions:list' %}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Geri
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save me-2"></i>
+                            İşlemi Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- İsteğe bağlı: Transaction type'a göre kategori filtreleme -->
+<script>
+    document.getElementById('transaction_type').addEventListener('change', function() {
+        const type = this.value;
+        const categorySelect = document.getElementById('category');
+        const options = categorySelect.getElementsByTagName('option');
+        
+        for (let i = 1; i < options.length; i++) {
+            const option = options[i];
+            const optionText = option.textContent.toLowerCase();
+            
+            if (type === 'income' && optionText.includes('income')) {
+                option.style.display = 'block';
+            } else if (type === 'expense' && optionText.includes('expense')) {
+                option.style.display = 'block';
+            } else if (type === '') {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        }
+        
+        categorySelect.value = '';
+    });
+</script>
+{% endblock %}
