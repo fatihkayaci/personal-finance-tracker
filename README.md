@@ -56,7 +56,7 @@ Modern ve kullanıcı dostu kişisel finans yönetim uygulaması. Django ile gel
 
 1. **Repository'yi klonlayın:**
 ```bash
-git clone https://github.com/KULLANICI_ADI/personal-finance-tracker.git
+git clone https://github.com/fatihkayaci/personal-finance-tracker.git
 cd personal-finance-tracker
 ```
 
@@ -148,7 +148,7 @@ python manage.py migrate
 ```bash
 python manage.py collectstatic
 ```
-
+<!-- 
 ## 🎨 Ekran Görüntüleri
 
 ### Dashboard
@@ -161,7 +161,7 @@ python manage.py collectstatic
 
 ### İşlem Ekleme
 ![Add Transaction](screenshots/add-transaction.png)
-*Kolay işlem ekleme formu*
+*Kolay işlem ekleme formu* -->
 
 ## 🤝 Katkıda Bulunma
 
@@ -197,7 +197,7 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 ## 👨‍💻 Geliştirici
 
-**[Adınız]** - [GitHub](https://github.com/KULLANICI_ADI) | [LinkedIn](https://linkedin.com/in/profil)
+**Fatih KAYACI** - [GitHub](https://github.com/fatihkayaci) | [LinkedIn](https://www.linkedin.com/in/fatih-kayaci-79180a28a/)
 
 ## 🙏 Teşekkürler
 
